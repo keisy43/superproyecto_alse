@@ -378,49 +378,64 @@ background-repeat: none;
     </property>
    </widget>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QLineEdit" name="cont">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>720</x>
      <y>320</y>
-     <width>121</width>
-     <height>27</height>
+     <width>41</width>
+     <height>25</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string>Tiempo:</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLineEdit" name="cont_2"/>
-    </item>
-   </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>320</y>
-     <width>131</width>
-     <height>27</height>
+     <x>650</x>
+     <y>330</y>
+     <width>67</width>
+     <height>17</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_2">
-    <item>
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>Aciertos:</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLineEdit" name="cont"/>
-    </item>
-   </layout>
+   <property name="text">
+    <string>Aciertos:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="cont_2">
+   <property name="geometry">
+    <rect>
+     <x>502</x>
+     <y>341</y>
+     <width>71</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>441</x>
+     <y>341</y>
+     <width>55</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Tiempo:</string>
+   </property>
+  </widget>
+  <widget class="QDialogButtonBox" name="buttonBox">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>330</y>
+     <width>166</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="standardButtons">
+    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+   </property>
   </widget>
  </widget>
  <resources/>

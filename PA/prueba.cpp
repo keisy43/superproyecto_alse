@@ -3,9 +3,6 @@
 #include "aciertos.h"
 #include <QTimer>
 
-int conteo=0;
-double _nota=0.;
-
 prueba::prueba(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::prueba)
@@ -52,7 +49,6 @@ prueba::prueba(QWidget *parent) :
     ui->boton10->setIcon(*rd );
     ui->boton11->setIcon(*rd );
     _estado = 1;
-    ui->cont->setText(QString::number(conteo));
 
 
     connect(_timer, &QTimer::timeout, this, &prueba::cambio_estado );
@@ -68,8 +64,8 @@ prueba::~prueba()
     delete ui;
 }
 
-void prueba::cambio_estado(){
-    if(tiempo<=(_duracion-1)){
+void prueba::cambio_estado(void){
+    if(tiempo<=29){
         switch ( _estado ) {
         case 1:
             _estado2=1;
@@ -190,6 +186,7 @@ void prueba::cambio_estado(){
             _timer->setInterval( 1000 );
             _timer->start();
 
+
             break;
         case 7:
             _estado2 = 7;
@@ -210,6 +207,7 @@ void prueba::cambio_estado(){
 
             _timer->setInterval( 1000 );
             _timer->start();
+
             break;
         case 8:
             _estado2 = 8;
@@ -277,6 +275,7 @@ void prueba::cambio_estado(){
             _timer->setInterval( 1000 );
             _timer->start();
 
+
             break;
         case 11:
             _estado2 = 11;
@@ -319,7 +318,6 @@ void prueba::cambio_estado(){
         ui->boton9->setIcon(*rd );
         ui->boton10->setIcon(*rd );
         ui->boton11->setIcon(*rd );
-        resultados();
     }
 
 }
@@ -433,16 +431,7 @@ void prueba::on_boton11_clicked()
     }
 
 }
-void prueba::resultados(){
-    double c=5.0,d=30.0;
-    _nota=(c/d)*conteo;
-    aciertos a(this);
-    a.setModal(true);
 
-     a.show();
-     a.exec();
-
-}
 
 
 

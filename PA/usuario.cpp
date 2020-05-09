@@ -9,6 +9,19 @@ usuario::usuario(QWidget *parent) :
     ui(new Ui::usuario)
 {
     ui->setupUi(this);
+    QString registros;
+    registros="BaseDeDatos.sqlite";
+    dbmain=QSqlDatabase::addDatabase("QSQLITE");
+    dbmain.setDatabaseName(registros);
+    if(dbmain.open())
+    {
+        qDebug()<<"base de datos creada";
+
+    }
+                  else
+        {
+                 qDebug()<<"base de datos no creada";
+    }
 }
 
 usuario::~usuario()

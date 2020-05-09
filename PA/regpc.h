@@ -2,6 +2,12 @@
 #define REGPC_H
 
 #include <QDialog>
+#include "QtSql/QSqlDatabase"
+#include"QtSql/qsqlquery.h"
+#include"QtSql/QSqlError"
+#include"QtSql/QSqlQuery"
+#include <string>
+#include <sqlite3.h>
 
 namespace Ui {
 class regpc;

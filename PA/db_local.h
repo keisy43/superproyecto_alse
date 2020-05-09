@@ -25,6 +25,7 @@ class db_local{
         public:
             db_local();
             bool abrirDB( string path );
+             bool creartabla(int argc, char* argv[]);
             bool cargarusuario( datosu &a);
             bool cargarpaciente(regpc &a);
 

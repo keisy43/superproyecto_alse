@@ -18,15 +18,12 @@
     <rect>
      <x>0</x>
      <y>90</y>
-     <width>371</width>
+     <width>391</width>
      <height>81</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true">font: 11pt &quot;Ubuntu&quot;;</string>
-   </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;su prueba tendra una duracion de &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;su prueba tendra una duracion de &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QDialogButtonBox" name="buttonBox">
@@ -40,16 +37,6 @@
    </property>
    <property name="standardButtons">
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="time">
-   <property name="geometry">
-    <rect>
-     <x>130</x>
-     <y>160</y>
-     <width>113</width>
-     <height>25</height>
-    </rect>
    </property>
   </widget>
  </widget>

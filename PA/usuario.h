@@ -1,5 +1,10 @@
 #ifndef USUARIO_H
 #define USUARIO_H
+#include "QtSql/QSqlDatabase"
+#include"QtSql/qsqlquery.h"
+#include"QtSql/QSqlError"
+#include"QtSql/QSqlQuery"
+
 
 #include <QMainWindow>
 
@@ -26,6 +31,7 @@ private slots:
 
 private:
     Ui::usuario *ui;
+    QSqlDatabase dbmain;
 };
 
 #endif // USUARIO_H

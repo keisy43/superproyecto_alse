@@ -29,15 +29,36 @@ db_local::db_local()
 
 
 }
+
     bool db_local::cargarusuario( datosu &a ){
+        /* TABLE `DATOSU` (
+    `ID_USUARIO`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+    `NOMBRE`	TEXT NOT NULL,
+    `_APELLIDO`	TEXT NOT NULL,
+    `_FECHAN`	TEXT NOT NULL,
+    `_DOCIDENT`	TEXT NOT NULL,
+    `_USUARIO`	TEXT NOT NULL,
+    `_CONTRA`	TEXT NOT NULL
+);*/
+
         char *zErrMsg = 0;
         int rc;
 
         std::stringstream sql;
-       sql <<"SElECT * FROM _datos_usuario WHERE id_usuario=(SELECT MAX(Id_usuario) FROM DATOS);";
+        /* Create SQL statement */
+
+
+     sql <<"  INSERT INTO `DATOSU`(NOMBRE,_APELLIDO,_FECHAN,_DOCIDENT,_USUARIO,_CONTRA)"
+              "VALUES (";
+      sql << a.getnombre() <<"  , "<< a.getapellido() << ", " <<a.getFechan() << ", " ;
+
+
+      sql << a.getDocident()<< ", " << a.getUser() << ", "<< a.getContra() <<  ");" ;
+
+        std::cout << sql.str() << std::endl;
 
         /* Execute SQL statement */
-        rc = sqlite3_exec(db, sql.str().c_str(),agregarusuario , (void*)&a, &zErrMsg);
+        rc = sqlite3_exec(db, sql.str().c_str(), 0, 0, &zErrMsg);
 
         if( rc != SQLITE_OK ){
            fprintf(stderr, "SQL error: %s\n", zErrMsg);
@@ -51,7 +72,7 @@ db_local::db_local()
     bool db_local::cerrarDB(){
             sqlite3_close( db );
         }
-    int db_local::agregarusuario(void *data, int argc, char **argv, char **azColName){
+   int db_local::agregarusuario(void *data, int argc, char **argv, char **azColName){
             datosu* a = (datosu *) data;
             a->setNombre(argv[1]);
             a->setApellido(argv[2]);
@@ -61,6 +82,10 @@ db_local::db_local()
             a->setContra(argv[6]);
             return 0;
         }
+
+
+
+
 
 
 
