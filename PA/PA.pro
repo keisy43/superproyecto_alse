@@ -22,7 +22,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-
 SOURCES += \
         main.cpp \
         usuario.cpp \
@@ -31,7 +30,10 @@ SOURCES += \
     menu.cpp \
     prueba.cpp \
     tiempod.cpp \
-    aciertos.cpp
+    aciertos.cpp \
+    db_local.cpp \
+    datosu.cpp \
+    datospc.cpp
 
 HEADERS += \
         usuario.h \
@@ -40,7 +42,10 @@ HEADERS += \
     menu.h \
     prueba.h \
     tiempod.h \
-    aciertos.h
+    aciertos.h \
+    db_local.h \
+    datosu.h \
+    datospc.h
 
 FORMS += \
         usuario.ui \
@@ -53,3 +58,6 @@ FORMS += \
 
 RESOURCES += \
     resources.qrc
+
+LIBS += \
+        -lsqlite3
