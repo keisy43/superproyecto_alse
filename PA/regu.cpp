@@ -2,17 +2,21 @@
 #include "ui_regu.h"
 #include "db_local.h"
 #include "QDebug"
-#include "QtSql/QSqlDatabase"
-#include"QtSql/qsqlquery.h"
-#include"QtSql/QSqlError"
-#include"QtSql/QSqlQuery"
+#include <string>
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <sqlite3.h>
+
+
+using namespace std;
 
 regu::regu(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::regu)
 {
     ui->setupUi(this);
-    creartabla();
+
 }
 
 regu::~regu()
@@ -24,45 +28,54 @@ void regu::on_buttonBox_accepted()
 {
     //guarda las variables que se ingresan
 
+   QString user;
+    user=ui->_nickname->text();
+    QString contra;
+     contra=ui->contra->text();
+     QString name;
+     name=ui->nombre->text();
+    QString lastname;
+    lastname=ui->apellido->text();
+    QString fn;
+    fn=ui->fechan->text();
+   QString doci;
+  doci=ui->docident->text();
 
-   _db.abrirDB("_Datos");
-   _db.cargarusuario(_dato);
-   ui->nombre->setText(QString( _dato.getnombre().c_str() )  );
-   ui->apellido->setText(QString(_dato.getapellido().c_str()));
-   ui->docident->setText(QString(_dato.getDocident().c_str()));
-  ui->fechan->setText(QString(_dato.getFechan().c_str()));
-  ui->_nickname->setText(QString(_dato.getUser().c_str()));
-  ui->contra->setText(QString(_dato.getContra().c_str() ));
+    qDebug()<<user;
+    qDebug()<<contra;
+    qDebug()<< name;
+
+
+
+  _db.abrirDB("_Datos");
+  _db.cargarusuario(_dato);
+
+
+
+
+ ui->nombre->setText(_dato.getnombre().c_str()) ;
+  ui->apellido->setText((_dato.getapellido().c_str()));
+   ui->docident->setText((_dato.getDocident().c_str()));
+  ui->fechan->setText((_dato.getFechan().c_str()));
+  ui->_nickname->setText((_dato.getUser().c_str()));
+  ui->contra->setText((_dato.getContra().c_str() ));
+
+
   _db.cerrarDB();
-  QString insertar;
-  insertar.append("INSERT INTO USUARIO("
-                  "_NOMBRE,_APELLIDO,_FECHAN,_DOCIDENT,_USUARIO,_CONTRA)"
-                  "VALUES (:_NOMBRE,:_APELLIDO,:_FECHAN,:_DOCIDENT,:_USUARIO,:_CONTRA)");
+
 
 }
-void regu::creartabla()
+
+QString regu::getName() const
 {
-QString consulta;
-consulta.append("CREATE TABLE IF NOT EXISTS USUARIO( ID_USUARIO	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,"
-                "_NOMBRE TEXT NOT NULL,"
-                "_APELLIDO	TEXT NOT NULL,"
-                "_FECHAN`	TEXT NOT NULL,"
-               "_DOCIDENT`	TEXT NOT NULL,"
-               "_USUARIO`	TEXT NOT NULL,"
-                "_CONTRA`	TEXT NOT NULL)");
-QSqlQuery crear;
-crear.prepare(consulta);
-        if(crear.exec()){
-            qDebug()<<"tabla Creada";
-
+    return name;
 }
-               else
-            {
-                      qDebug()<<"tabla no creada"<<crear.lastError();
-        }
 
-
+void regu::setName(const QString &value)
+{
+    name = value;
 }
+
 
 
 

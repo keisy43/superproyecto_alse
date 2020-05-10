@@ -6,10 +6,11 @@
 #include"datosu.h"
 #include "qstring.h"
 #include <string>
+#include "QtSql/qsqlquery.h"
+#include "QtSql/QSqlQuery"
 #include "QtSql/QSqlDatabase"
-#include"QtSql/qsqlquery.h"
-#include"QtSql/QSqlError"
-#include"QtSql/QSqlQuery"
+#include "QtSql/QSqlError"
+
 
 
 namespace Ui {
@@ -24,18 +25,21 @@ public:
     explicit regu(QWidget *parent = 0);
     ~regu();
 
-    QString getNom() const;
-    void setNom(const QString &value);
+
+
+    QString getName() const;
+    void setName(const QString &value);
 
 private slots:
     void on_buttonBox_accepted();
-void creartabla();
+
 private:
     Ui::regu *ui;
 
     db_local   _db;
     datosu _dato;
-
+     QString name;
+ QSqlDatabase dbmain;
 };
 
 #endif // REGU_H

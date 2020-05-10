@@ -14,6 +14,7 @@ db_local::db_local()
 {
 }
     bool db_local::abrirDB( string path ){
+        char *zErrMsg = 0;
         int rc;
 
         /* Open database */
@@ -26,6 +27,7 @@ db_local::db_local()
             fprintf(stderr, "Opened database successfully\n");
 
         return true;
+
 
 
 }
@@ -47,18 +49,24 @@ db_local::db_local()
         std::stringstream sql;
         /* Create SQL statement */
 
-
-     sql <<"  INSERT INTO `DATOSU`(NOMBRE,_APELLIDO,_FECHAN,_DOCIDENT,_USUARIO,_CONTRA)"
-              "VALUES (";
-      sql << a.getnombre() <<"  , "<< a.getapellido() << ", " <<a.getFechan() << ", " ;
-
-
-      sql << a.getDocident()<< ", " << a.getUser() << ", "<< a.getContra() <<  ");" ;
+//   sql << "CREATE TABLE DATOSU ("\
+//     "`ID_USUARIO`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,"\
+//     "`NOMBRE`	BLOB NOT NULL,"\
+//     "`_APELLIDO`	BLOB NOT NULL,"\
+//     "`_FECHAN`	BLOB NOT NULL,"\
+//     "`_DOCIDENT`	BLOB NOT NULL,"\
+//     "`_USUARIO`	BLOB NOT NULL,"\
+//     "`_CONTRA`	BLOB NOT NULL"\
+//                               ");";
+     sql <<" INSERT INTO DATOSU ( NOMBRE ,_APELLIDO , _FECHAN,_DOCIDENT,_USUARIO, _CONTRA ) VALUES ( ";
+  sql << a.getnombre()<<"," ;
+      sql <<a.getapellido()<<","<<a.getFechan()<<",";
+      sql <<a.getDocident()<<","<<a.getUser()<<","<<a.getContra()<<");";
 
         std::cout << sql.str() << std::endl;
 
         /* Execute SQL statement */
-        rc = sqlite3_exec(db, sql.str().c_str(), 0, 0, &zErrMsg);
+        rc = sqlite3_exec(db, sql.str().c_str(),0,0, &zErrMsg);
 
         if( rc != SQLITE_OK ){
            fprintf(stderr, "SQL error: %s\n", zErrMsg);
