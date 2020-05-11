@@ -5,6 +5,13 @@
 #include <string>
 #include <sqlite3.h>
 #include "db_local.h"
+/**
+ * @brief The regpc class
+ * Esta clase maneja la conexión con la ventana de dialogo QDialog donde
+ * se registran los datos de un paciente nuevo.
+ *
+ * @details
+ */
 
 namespace Ui {
 class regpc;
