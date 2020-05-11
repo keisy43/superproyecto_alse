@@ -16,65 +16,40 @@ regu::regu(QWidget *parent) :
     ui(new Ui::regu)
 {
     ui->setupUi(this);
+      _db.abrirDB("/home/alseuser/PA/_Datos");
 
 }
 
 regu::~regu()
 {
     delete ui;
+      _db.cerrarDB();
 }
 
 void regu::on_buttonBox_accepted()
 {
     //guarda las variables que se ingresan
 
-   QString user;
-    user=ui->_nickname->text();
-    QString contra;
-     contra=ui->contra->text();
-     QString name;
-     name=ui->nombre->text();
-    QString lastname;
-    lastname=ui->apellido->text();
-    QString fn;
-    fn=ui->fechan->text();
-   QString doci;
-  doci=ui->docident->text();
+    string user;
+     string contra;
+      string name;
+     string lastname;
+     string fn;
+    string doci;
 
-    qDebug()<<user;
-    qDebug()<<contra;
-    qDebug()<< name;
+name=ui->nombre->text().toStdString();
+lastname=ui->apellido->text().toStdString();
+doci=ui->docident->text().toStdString();
+fn=ui->fechan->text().toStdString();
+user=ui->_nickname->text().toStdString();
+ contra=ui->contra->text().toStdString();
+ _db.cargarusuario(name, lastname ,doci,fn,user,contra);
 
-
-
-  _db.abrirDB("_Datos");
-  _db.cargarusuario(_dato);
-
-
-
-
- ui->nombre->setText(_dato.getnombre().c_str()) ;
-  ui->apellido->setText((_dato.getapellido().c_str()));
-   ui->docident->setText((_dato.getDocident().c_str()));
-  ui->fechan->setText((_dato.getFechan().c_str()));
-  ui->_nickname->setText((_dato.getUser().c_str()));
-  ui->contra->setText((_dato.getContra().c_str() ));
-
-
-  _db.cerrarDB();
 
 
 }
 
-QString regu::getName() const
-{
-    return name;
-}
 
-void regu::setName(const QString &value)
-{
-    name = value;
-}
 
 
 

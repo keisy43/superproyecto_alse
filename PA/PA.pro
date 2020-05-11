@@ -32,9 +32,7 @@ SOURCES += \
     prueba.cpp \
     tiempod.cpp \
     aciertos.cpp \
-    db_local.cpp \
-    datosu.cpp \
-    datospc.cpp
+    db_local.cpp
 
 HEADERS += \
         usuario.h \
@@ -44,9 +42,7 @@ HEADERS += \
     prueba.h \
     tiempod.h \
     aciertos.h \
-    db_local.h \
-    datosu.h \
-    datospc.h
+    db_local.h
 
 FORMS += \
         usuario.ui \

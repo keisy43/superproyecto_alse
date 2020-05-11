@@ -2,12 +2,9 @@
 #define REGPC_H
 
 #include <QDialog>
-#include "QtSql/QSqlDatabase"
-#include"QtSql/qsqlquery.h"
-#include"QtSql/QSqlError"
-#include"QtSql/QSqlQuery"
 #include <string>
 #include <sqlite3.h>
+#include "db_local.h"
 
 namespace Ui {
 class regpc;
@@ -21,8 +18,12 @@ public:
     explicit regpc(QWidget *parent = 0);
     ~regpc();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::regpc *ui;
+  db_local _bd;
 };
 
 #endif // REGPC_H

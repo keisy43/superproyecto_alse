@@ -3,8 +3,7 @@
 
 #include <string>
 #include <sqlite3.h>
-#include"datosu.h"
-#include "regpc.h"
+#include"usuario.h"
 using namespace std;
 /**
  * @brief The DB_Local class
@@ -24,11 +23,11 @@ class db_local{
 
         public:
             db_local();
-            bool abrirDB( string path );
-             bool creartabla(int argc, char* argv[]);
-            bool cargarusuario( datosu &a);
-            bool cargarpaciente(regpc &a);
-
+            bool abrirDB( string path );           
+            bool cargarusuario(  string namenew, string lastnamenew, string fnnew,string docinew,string usernuevo,string contranew
+             );
+            bool cargarpaciente(string np,string appc,float Doc,float fecha,string genero,string raza,string direccion,string nin);
+//            bool login (usuario &a);
             bool cerrarDB();
         };
 
