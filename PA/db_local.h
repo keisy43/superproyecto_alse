@@ -1,6 +1,7 @@
 #ifndef DB_LOCAL_H
 #define DB_LOCAL_H
 
+#include "usuario.h"
 #include <string>
 #include <sqlite3.h>
 
@@ -28,7 +29,7 @@ class db_local{
      bool cargarusuario(  string namenew, string lastnamenew, string fnnew,string docinew,string usernuevo,string contranew
              );
      bool cargarpaciente(string np,string appc,float Doc,float fecha,string genero,string raza,string direccion,string nin);
-     bool verificarusuario(string nickname, string contra);
+     bool verificarusuario(usuario &z);
      bool cerrarDB();
 
         };

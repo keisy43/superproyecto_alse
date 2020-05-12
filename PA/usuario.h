@@ -1,7 +1,6 @@
 #ifndef USUARIO_H
 #define USUARIO_H
 #include "qstring.h"
-#include "db_local.h"
 #include <string>
 #include <QMainWindow>
 using namespace std;
@@ -16,9 +15,6 @@ class usuario : public QMainWindow
 public:
 
     explicit usuario(QWidget *parent = 0);
-
-
-    usuario& operator = ( const usuario &a );
     ~usuario();
 
     string getUser() const;
@@ -36,7 +32,6 @@ private:
     Ui::usuario *ui;
  string user;
   string contra;
-db_local ac;
 
 };
 

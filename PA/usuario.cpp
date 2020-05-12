@@ -1,6 +1,7 @@
 #include "usuario.h"
 #include "ui_usuario.h"
 #include "regu.h"
+#include "db_local.h"
 #include "menu.h"
 #include "QDebug"
 #include <string>
@@ -13,15 +14,16 @@ usuario::usuario(QWidget *parent) :
     ui(new Ui::usuario)
 {
     ui->setupUi(this);
-    ac.abrirDB("/home/alseuser/PA/_Datos");
+
 
 }
 
 usuario::~usuario()
 {
     delete ui;
-     ac.cerrarDB();
+
 }
+
 
 void usuario::on_Ru_clicked()
 {
@@ -33,24 +35,25 @@ void usuario::on_Ru_clicked()
 }
 void usuario::on_ingresar_clicked()
 {
-    //guarda las variables que se ingresan todo esto esta comentado porque no estoy segura
+     usuario  _dato;
+db_local ac;
+  ac.abrirDB("/home/alseuser/PA/_Datos");
 
-int yes;
-//  ac.abrirDB("/home/alseuser/PA/_Datos");
+  _dato.setUser(ui->usuario_2->text().toStdString());
+  _dato.setContra(ui->contrase->text().toStdString());
 
-  getUser()=ui->usuario_2->text().toStdString();
-  getContra()=ui->contrase->text().toStdString();
+  ac.verificarusuario( _dato);
+  menu a(this);
+  a.setModal(true);
+  a.show();
+  a.exec();
+ ac.cerrarDB();
+  }
 
-    // sirve para mostrar la ventana emergente
-//   ac.cerrarDB();
-  if(ac.verificarusuario( getUser(),getContra())== true){
-    menu a(this);
-     a.setModal(true);
-     a.show();
-     a.exec();
-}
 
-}
+
+
+
 
 string usuario::getContra() const
 {

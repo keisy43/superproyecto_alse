@@ -73,31 +73,36 @@ db_local::db_local()
         sqlite3_close( db );
    }
 
-   bool db_local::verificarusuario(string nickname, string contra){
+   bool db_local::verificarusuario(usuario &z){
     char *zErrMsg = 0;
     int rc;
-   std::stringstream sql;
-       sql << "SELECT * FROM DATOSU WHERE ( _USUARIO = '" << nickname<< "' AND  _CONTRA = '" << contra << "' );";
-//       sql << "SELECT * FROM DATOSU WHERE ( _CONTRA = '" << contra << "' );";
 
-       rc = sqlite3_exec(db, sql.str().c_str(),agregarusuario , 0, &zErrMsg);
-cout<<rc<<endl;
+
+   std::stringstream sql;
+       sql << "SELECT * FROM DATOSU WHERE ( _USUARIO = '" << z.getUser()<< "' "
+            "AND  _CONTRA = '" << z.getContra() << "' );";
+ std::cout << sql.str() << std::endl;
+       rc = sqlite3_exec(db, sql.str().c_str(), agregarusuario,(void*)&z, &zErrMsg);
+cout<< rc<<endl;
        if( rc != SQLITE_OK ) {
            fprintf(stderr, "SQL error: %s\n", zErrMsg);
           sqlite3_free(zErrMsg);
-          return false;
+           return false;
+
        }
-       return true;
+      return true;
+
+
     }
 
  int db_local::agregarusuario(void *data, int argc, char **argv, char **azColName){
 
-    usuario * a = (usuario*) data ;
-     a->setUser(argv[4]);
-     a->setContra(argv[5]);
+ usuario * a = (usuario*) data ;
+   a->setUser(argv[5]);
+   a->setContra(argv[6]);
 
-      return 0;
-  }
+   return 0;
+ }
 
   /**
    * @brief db_local::cargarpaciente
