@@ -3,6 +3,10 @@
 #include "qstring.h"
 #include <string>
 #include <QMainWindow>
+#include"QtSql/QSqlDatabase"
+#include"QtSql/QSqlQuery"
+#include"QtSql/qsqlquery.h"
+#include"QtSql/QSqlError"
 using namespace std;
 namespace Ui {
 class usuario;
@@ -32,7 +36,7 @@ private:
     Ui::usuario *ui;
  string user;
   string contra;
-
+QSqlDatabase _abrir;
 };
 
 #endif // USUARIO_H

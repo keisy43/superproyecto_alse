@@ -8,14 +8,24 @@
 #include <iostream>
 #include <sstream>
 #include <sqlite3.h>
+#include"QtSql/QSqlDatabase"
+#include"QtSql/QSqlQuery"
+#include"QtSql/qsqlquery.h"
+#include"QtSql/QSqlError"
 
 usuario::usuario(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::usuario)
 {
     ui->setupUi(this);
-
-
+_abrir=QSqlDatabase::addDatabase("QSQLITE");
+_abrir.setDatabaseName("/home/alseuser/superproyecto_alse/PA/_Datos");
+if(_abrir.open()){
+    qDebug()<<"abrio";
+}
+else{
+     qDebug()<<"no abrio";
+}
 }
 
 usuario::~usuario()
@@ -35,20 +45,41 @@ void usuario::on_Ru_clicked()
 }
 void usuario::on_ingresar_clicked()
 {
-     usuario  _dato;
+ QString contra2;
 db_local ac;
-  ac.abrirDB("/home/alseuser/superproyecto_alse/PA/_Datos");
+  //ac.abrirDB("/home/alseuser/superproyecto_alse/PA/_Datos");
 
-  _dato.setUser(ui->usuario_2->text().toStdString());
-  _dato.setContra(ui->contrase->text().toStdString());
-  if(ac.verificarusuario( _dato)==false){
+  setUser(ui->usuario_2->text().toStdString());
+  setContra(ui->contrase->text().toStdString());
+//if(ac.verificarusuario( getUser(),getContra())==true){
+  QSqlQuery buscar;
+  QString sql;
+  QString user;
+  QString contra;
+  user=ui->usuario_2->text();
+  contra=ui->contrase->text();
+  sql.append("SELECT  * FROM DATOSU WHERE  _USUARIO = '"+ user+"' ");
+  buscar.prepare(sql);
+  if(buscar.exec()){
+      qDebug()<<"consulta realizada";
+      while (buscar.next()){
+          contra2=buscar.value(5).toByteArray().constData();
+          qDebug()<<contra2;
+      }
+  }
+      else{
+          qDebug()<<"error de consulta";
+      }
+      if(contra2==contra){
+
   menu a(this);
   a.setModal(true);
   a.show();
   a.exec();
-  ac.cerrarDB();
+ ac.cerrarDB();
+}
   }
-  }
+
 
 
 
