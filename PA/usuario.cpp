@@ -37,17 +37,17 @@ void usuario::on_ingresar_clicked()
 {
      usuario  _dato;
 db_local ac;
-  ac.abrirDB("/home/alseuser/PA/_Datos");
+  ac.abrirDB("/home/alseuser/superproyecto_alse/PA/_Datos");
 
   _dato.setUser(ui->usuario_2->text().toStdString());
   _dato.setContra(ui->contrase->text().toStdString());
-
-  ac.verificarusuario( _dato);
+  if(ac.verificarusuario( _dato)==false){
   menu a(this);
   a.setModal(true);
   a.show();
   a.exec();
- ac.cerrarDB();
+  ac.cerrarDB();
+  }
   }
 
 

@@ -32,7 +32,9 @@ SOURCES += \
     prueba.cpp \
     tiempod.cpp \
     aciertos.cpp \
-    db_local.cpp
+    db_local.cpp \
+    paciente.cpp \
+    veripac.cpp
 
 HEADERS += \
         usuario.h \
@@ -42,7 +44,9 @@ HEADERS += \
     prueba.h \
     tiempod.h \
     aciertos.h \
-    db_local.h
+    db_local.h \
+    paciente.h \
+    veripac.h
 
 FORMS += \
         usuario.ui \
@@ -51,7 +55,9 @@ FORMS += \
     menu.ui \
     prueba.ui \
     tiempod.ui \
-    aciertos.ui
+    aciertos.ui \
+    paciente.ui \
+    veripac.ui
 
 RESOURCES += \
     resources.qrc

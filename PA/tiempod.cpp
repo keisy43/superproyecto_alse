@@ -1,6 +1,8 @@
 #include "tiempod.h"
 #include "ui_tiempod.h"
 #include "prueba.h"
+#include <QWidget>
+#include <QString>
 
 tiempod::tiempod(QWidget *parent) :
     QDialog(parent),
@@ -16,12 +18,19 @@ tiempod::~tiempod()
 
 void tiempod::on_buttonBox_accepted()
 {
-    prueba a(this);
-    a.setModal(true);
+    if(ui->tiempop->text() != ""){
+       _duracion= ui->tiempop->text().toInt() ;
 
-     a.show();
-     a.exec();
+       prueba a(this);
+        a.setModal(true);
+
+        a.show();
+        a.exec();
+
+
+    }else{
+        ui->adver->setText("Ingrese un valor.");
+    }
+
 }
-
-
 

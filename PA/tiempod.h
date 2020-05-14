@@ -2,7 +2,7 @@
 #define TIEMPOD_H
 
 #include <QDialog>
-
+extern int _duracion;
 namespace Ui {
 class tiempod;
 }
@@ -15,14 +15,16 @@ public:
     explicit tiempod(QWidget *parent = 0);
     ~tiempod();
 
+
+
 private slots:
     void on_buttonBox_accepted();
 
 
-
-
 private:
     Ui::tiempod *ui;
+
+
 };
 
 #endif // TIEMPOD_H

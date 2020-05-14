@@ -1,45 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>regpc</class>
- <widget class="QDialog" name="regpc">
+ <class>veripac</class>
+ <widget class="QDialog" name="veripac">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>731</width>
-    <height>390</height>
+    <width>589</width>
+    <height>342</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>500</x>
-     <y>350</y>
-     <width>80</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Guardar</string>
-   </property>
-  </widget>
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>0</y>
-     <width>571</width>
-     <height>331</height>
+     <y>20</y>
+     <width>561</width>
+     <height>301</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">font: 75 11pt &quot;URW Bookman L&quot;;</string>
    </property>
    <property name="title">
-    <string>Registro del paciente.</string>
+    <string>Datos paciente.</string>
    </property>
    <widget class="QLabel" name="label">
     <property name="geometry">
@@ -123,32 +110,6 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Genero:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="generof">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>240</y>
-      <width>91</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Femenino</string>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="generom">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>270</y>
-      <width>94</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Masculino</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
@@ -162,7 +123,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Apellido:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="apellidop_2">
+   <widget class="QLineEdit" name="dateEdit">
     <property name="geometry">
      <rect>
       <x>260</x>
@@ -183,6 +144,16 @@
     </property>
     <property name="text">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Fecha de nacimiento:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="apellidop">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>120</y>
+      <width>181</width>
+      <height>25</height>
+     </rect>
     </property>
    </widget>
    <widget class="QLabel" name="label_7">
@@ -241,29 +212,18 @@
      </rect>
     </property>
     <property name="text">
-     <string>(DD MM AAAA)</string>
+     <string>(DD-MM-AAAA)</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>120</y>
+      <x>20</x>
+      <y>240</y>
       <width>181</width>
-      <height>30</height>
+      <height>25</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QLineEdit" name="dianac"/>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="mesnac"/>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="anionac"/>
-     </item>
-    </layout>
    </widget>
   </widget>
  </widget>

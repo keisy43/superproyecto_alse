@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>803</width>
-    <height>381</height>
+    <width>812</width>
+    <height>380</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>20</y>
-     <width>778</width>
+     <y>10</y>
+     <width>761</width>
      <height>271</height>
     </rect>
    </property>
@@ -378,64 +378,49 @@ background-repeat: none;
     </property>
    </widget>
   </widget>
-  <widget class="QLineEdit" name="cont">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>720</x>
+     <x>20</x>
      <y>320</y>
-     <width>41</width>
-     <height>25</height>
+     <width>191</width>
+     <height>27</height>
     </rect>
    </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>Tiempo de prueba:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="cont_2"/>
+    </item>
+   </layout>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>650</x>
-     <y>330</y>
-     <width>67</width>
-     <height>17</height>
+     <x>220</x>
+     <y>320</y>
+     <width>206</width>
+     <height>27</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Aciertos:</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="cont_2">
-   <property name="geometry">
-    <rect>
-     <x>502</x>
-     <y>341</y>
-     <width>71</width>
-     <height>25</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>441</x>
-     <y>341</y>
-     <width>55</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Tiempo:</string>
-   </property>
-  </widget>
-  <widget class="QDialogButtonBox" name="buttonBox">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>330</y>
-     <width>166</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="standardButtons">
-    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Cantidad de aciertos:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="cont"/>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

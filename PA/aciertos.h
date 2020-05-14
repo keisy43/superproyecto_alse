@@ -1,7 +1,8 @@
 #ifndef ACIERTOS_H
 #define ACIERTOS_H
-
+#include "prueba.h"
 #include <QDialog>
+
 
 namespace Ui {
 class aciertos;

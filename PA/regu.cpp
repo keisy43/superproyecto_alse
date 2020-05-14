@@ -15,7 +15,7 @@ regu::regu(QWidget *parent) :
     ui(new Ui::regu)
 {
     ui->setupUi(this);
-    _db.abrirDB("/home/alseuser/PA/_Datos");
+    _db.abrirDB("/home/alseuser/superproyecto_alse/PA/_Datos");
 
 }
 
@@ -24,6 +24,7 @@ regu::~regu()
     delete ui;
       _db.cerrarDB();
 }
+
 /**
  * @brief regu::on_buttonBox_accepted
  * @details se asignan los datos ingresados en la ventana QDialog a unas variables
